@@ -57,7 +57,6 @@ header { padding: 20px 8%; display: flex; justify-content: space-between; align-
     object-fit: cover; 
     border-radius: 24px; 
     box-shadow: var(--shadow-hover); 
-    /* Gunakan properti spesifik seperti di bawah ini */
     background-color: #cbd5e1; 
     background-image: url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?&auto=format&fit=crop&w=400&q=80');
     background-position: center;
@@ -78,35 +77,27 @@ header { padding: 20px 8%; display: flex; justify-content: space-between; align-
 .section-title { font-size: 36px; font-weight: 800; margin-bottom: 16px; text-align: center; }
 .section-desc { text-align: center; color: var(--text-muted); margin-bottom: 60px; font-size: 18px; max-width: 600px; margin: 0 auto 60px; }
 
-/* Container pembungkus (baru) */
+/* Container pembungkus Playlist */
 .video-grid-container {
     position: relative;
     padding: 10px 0;
 }
 
-/* Logic Scroll (Gantikan .video-grid yang lama dengan ini) */
 .video-grid {
-    display: flex; /* Berjejer ke samping */
+    display: flex; 
     gap: 25px;
-    overflow-x: auto; /* Aktifkan scroll kanan-kiri */
+    overflow-x: auto; 
     padding-bottom: 25px;
     padding-top: 10px;
-    scroll-snap-type: x mandatory; /* Efek magnet saat scroll */
-    -webkit-overflow-scrolling: touch; /* Halus di iPhone */
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch; 
 }
 
-/* Percantik Scrollbar (Khusus Chrome, Edge, Safari) */
-.video-grid::-webkit-scrollbar {
-    height: 8px;
-}
-.video-grid::-webkit-scrollbar-track {
-    background: var(--bg-main);
-    border-radius: 10px;
-}
-.video-grid::-webkit-scrollbar-thumb {
-    background: var(--primary-blue);
-    border-radius: 10px;
-}
+/* Percantik Scrollbar */
+.video-grid::-webkit-scrollbar { height: 8px; }
+.video-grid::-webkit-scrollbar-track { background: var(--bg-main); border-radius: 10px; }
+.video-grid::-webkit-scrollbar-thumb { background: var(--primary-blue); border-radius: 10px; }
+
 .video-card { 
     background: var(--surface-color); 
     border-radius: 16px; 
@@ -121,24 +112,55 @@ header { padding: 20px 8%; display: flex; justify-content: space-between; align-
 .play-btn::after { content: '▶'; margin-left: 4px; }
 .v-info { padding: 24px; }
 
+/* Pricing Cards & Buttons */
 .cards-wrap { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
-.pricing-card { background: var(--surface-color); padding: 40px; border-radius: 24px; width: 340px; border: 1px solid var(--border-color); position: relative; }
-.pricing-card ul { list-style: none; margin-bottom: 30px; }
+.pricing-card { background: var(--surface-color); padding: 40px; border-radius: 24px; width: 340px; border: 1px solid var(--border-color); position: relative; display: flex; flex-direction: column; }
+.pricing-card ul { list-style: none; margin-bottom: 30px; flex-grow: 1; }
 .pricing-card ul li { margin-bottom: 12px; display: flex; align-items: center; }
 .pricing-card ul li::before { content: '✓'; color: var(--success-green); margin-right: 12px; font-weight: 800; }
 
-.btn-outline { text-align: center; padding: 14px; border: 2px solid var(--border-color); color: var(--text-main); border-radius: 12px; font-weight: 700; display: block; }
-.card-active { border: 2px solid var(--primary-blue); }
-.card-active .btn-outline { background: var(--primary-blue); color: #fff; border-color: var(--primary-blue); }
-
-/* Gaya untuk kartu Advanced */
-.card-advanced {
-    border: 2px solid var(--success-green) !important;
+/* Button Style - Diseragamkan */
+.btn-outline { 
+    text-align: center; 
+    padding: 14px; 
+    border: 2px solid var(--border-color); 
+    color: var(--text-main); 
+    border-radius: 12px; 
+    font-weight: 700; 
+    display: block; 
+    width: 100%; 
+    background-color: transparent;
+    transition: 0.3s;
 }
 
+.btn-outline:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+    background-color: rgba(37, 99, 235, 0.05);
+}
+
+/* Gaya Khusus untuk Kartu Aktif (Intermediate) */
+.card-active { border: 2px solid var(--primary-blue); box-shadow: var(--shadow-hover); }
+
+.card-active .btn-outline { 
+    background-color: var(--primary-blue); 
+    color: #fff; 
+    border-color: var(--primary-blue); 
+}
+
+.card-active .btn-outline:hover {
+    background-color: var(--hover-blue);
+    border-color: var(--hover-blue);
+    color: #fff;
+}
+
+/* Gaya untuk kartu Advanced */
+.card-advanced { border: 2px solid var(--success-green) !important; }
+
 .card-advanced .btn-outline {
-    background-color: rgba(16, 185, 129, 0.05);
+    background-color: transparent;
     border-color: var(--success-green);
+    color: var(--text-main);
 }
 
 .card-advanced .btn-outline:hover {
@@ -149,22 +171,8 @@ header { padding: 20px 8%; display: flex; justify-content: space-between; align-
 footer { background-color: var(--surface-color); padding: 80px 8% 40px; text-align: center; border-top: 1px solid var(--border-color); }
 
 @media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 60px 8%;
-    }
-    .hero-text {
-        max-width: 100%;
-        margin-bottom: 50px;
-    }
-    .hero-img-box {
-        width: 100%;
-        max-width: 320px;
-        height: 320px;
-    }
-    .chart-widget {
-        left: 0;
-        bottom: -20px;
-    }
+    .hero { flex-direction: column; text-align: center; padding: 60px 8%; }
+    .hero-text { max-width: 100%; margin-bottom: 50px; }
+    .hero-img-box { width: 100%; max-width: 320px; height: 320px; }
+    .chart-widget { left: 0; bottom: -20px; }
 }
