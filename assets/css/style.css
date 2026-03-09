@@ -190,15 +190,17 @@ body::before {
     
     /* Layer 1: Candlestick Pattern | Layer 2: Grid Lines */
     background-image: 
-        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' opacity='0.3'%3E%3Cpath d='M20 40h4v20h-4zM21.5 30v40' stroke='%232563EB' stroke-width='1'/%3E%3Cpath d='M20 40h4v20h-4z' fill='%232563EB'/%3E%3Cpath d='M60 70h4v15h-4zM61.5 60v35' stroke='%2310B981' stroke-width='1'/%3E%3Cpath d='M60 70h4v15h-4z' fill='%2310B981'/%3E%3Cpath d='M100 25h4v25h-4zM101.5 15v45' stroke='%232563EB' stroke-width='1'/%3E%3Cpath d='M100 25h4v25h-4z' fill='%232563EB'/%3E%3C/g%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' opacity='1'%3E%3Cpath d='M20 40h4v20h-4zM21.5 30v40' stroke='%232563EB' stroke-width='1'/%3E%3Cpath d='M20 40h4v20h-4z' fill='%232563EB'/%3E%3Cpath d='M60 70h4v15h-4zM61.5 60v35' stroke='%2310B981' stroke-width='1'/%3E%3Cpath d='M60 70h4v15h-4z' fill='%2310B981'/%3E%3Cpath d='M100 25h4v25h-4zM101.5 15v45' stroke='%232563EB' stroke-width='1'/%3E%3Cpath d='M100 25h4v25h-4z' fill='%232563EB'/%3E%3C/g%3E%3C/svg%3E"),
         linear-gradient(var(--border-color) 1px, transparent 1px),
         linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
     
     background-size: 240px 240px, 60px 60px, 60px 60px;
     background-attachment: fixed;
-    
+    filter: blur(2px);
+    transform: scale(1.05);
+
     /* Naikkan opacity sedikit agar lebih terlihat saat testing */
-    opacity: 0.08; 
+    opacity: 0.2; 
 }
 
 /* Penyesuaian Dark Mode agar lebih kontras */
