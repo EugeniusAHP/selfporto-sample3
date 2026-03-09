@@ -1,7 +1,11 @@
 /* ---------------------------------------------------------
    PROPERTIES & VARIABLES
    --------------------------------------------------------- */
-:root {
+/* Tambahkan ini di paling atas file */
+html {
+    scroll-behavior: smooth;
+}
+   :root {
     --bg-main: #F8FAFC;
     --surface-color: #FFFFFF;
     --text-main: #0F172A;
@@ -31,7 +35,10 @@
 /* ---------------------------------------------------------
    GLOBAL STYLES
    --------------------------------------------------------- */
-* { 
+section {
+    scroll-margin-top: 100px; /* Sesuaikan angka ini dengan tinggi header kamu */
+}
+   * { 
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
