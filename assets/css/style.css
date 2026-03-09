@@ -78,7 +78,11 @@ header { padding: 20px 8%; display: flex; justify-content: space-between; align-
 .section-title { font-size: 36px; font-weight: 800; margin-bottom: 16px; text-align: center; }
 .section-desc { text-align: center; color: var(--text-muted); margin-bottom: 60px; font-size: 18px; max-width: 600px; margin: 0 auto 60px; }
 
-.video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+.video-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 25px; 
+}
 .video-card { background: var(--surface-color); border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-soft); }
 .thumb { height: 190px; background-color: var(--bg-main); display: flex; align-items: center; justify-content: center; }
 .play-btn { width: 50px; height: 50px; background: rgba(37, 99, 235, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-blue); }
@@ -95,4 +99,41 @@ header { padding: 20px 8%; display: flex; justify-content: space-between; align-
 .card-active { border: 2px solid var(--primary-blue); }
 .card-active .btn-outline { background: var(--primary-blue); color: #fff; border-color: var(--primary-blue); }
 
+.card-advanced {
+    border: 2px solid var(--success-green) !important; /* Memberi border hijau menyala */
+    box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2);
+}
+
+.card-advanced .btn-outline {
+    background-color: rgba(16, 185, 129, 0.05);
+    border-color: var(--success-green);
+    color: var(--text-main);
+}
+
+.card-advanced .btn-outline:hover {
+    background-color: var(--success-green);
+    color: #FFFFFF;
+}
+
 footer { background-color: var(--surface-color); padding: 80px 8% 40px; text-align: center; border-top: 1px solid var(--border-color); }
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 8%;
+    }
+    .hero-text {
+        max-width: 100%;
+        margin-bottom: 50px;
+    }
+    .hero-img-box {
+        width: 100%;
+        max-width: 320px;
+        height: 320px;
+    }
+    .chart-widget {
+        left: 0;
+        bottom: -20px;
+    }
+}
